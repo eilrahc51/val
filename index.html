@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #ffe6f2;
+            text-align: center;
+            overflow: hidden;
+        }
+        .container {
+            border: 2px solid #ff66b2;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        h1 {
+            color: #ff66b2;
+            font-size: 2.5rem;
+        }
+        .gif-container {
+            margin: 20px 0;
+        }
+        .buttons {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            background-color: #ff66b2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #ff3385;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hey, cutie! Will You Be My Valentine? 💕</h1>
+        <div class="gif-container">
+            <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExYXRub2cwNG9ncTkwZjZtOTlxcGJ0dmxhNnYyY3o0Njc3ZHp2bW9lcCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/e1Tf1eOo6976zuGv3C/giphy.gif" alt="Cute Valentine Gif" width="300">
+        </div>
+        <div class="buttons">
+            <button onclick="window.location.href='thankyouu.html'">Yes, pookie! 😘</button>
+            <button onclick="moveButton()">Nope, lovebug 😓</button>
+        </div>
+    </div>
+
+    <script>
+        function moveButton() {
+            // Get the button element
+            const button = document.querySelectorAll('.buttons button')[1];
+
+            // Get the width and height of the window
+            const windowWidth = window.innerWidth;
+            const windowHeight = window.innerHeight;
+
+            // Define maximum limits for the button's position (for example, the container's size)
+            const container = document.querySelector('.container');
+            const containerRect = container.getBoundingClientRect();
+
+            const containerWidth = containerRect.width;
+            const containerHeight = containerRect.height;
+
+            // Limit the random position of the button within the container
+            const randomX = Math.random() * (containerWidth - button.offsetWidth);
+            const randomY = Math.random() * (containerHeight - button.offsetHeight);
+
+            // Change the position of the button (keeping it inside the container boundaries)
+            button.style.position = 'absolute';
+            button.style.left = `${randomX}px`;
+            button.style.top = `${randomY}px`;
+
+            // Add a list of cute rejection messages with colloquial terms
+            const rejectionMessages = [
+                "I'm sorry, pookie 😢",
+                "Maybe next time, cutie 😔",
+                "Rejection hurts, boo 💔",
+                "Nooooo 😭, not today!",
+                "Aww, I'm sorry, lovebug 😞",
+                "I gotta pass, sweetheart 💔",
+                "You're adorable, but no thanks 😘",
+                "I'm not ready, my love 💕",
+                "Not this time, sugarplum 😅",
+                "Aww, you're too sweet, but no 😓",
+                "You're my pookie, but it's a no 😞",
+                "Sorry, babe, not feeling it today 😢",
+                "Nope, nope, nope, baby 💔",
+                "Not this time, my darling 😅",
+                "I wish I could, but no 😔"
+            ];
+
+            // Randomly select a rejection message
+            const randomMessage = rejectionMessages[Math.floor(Math.random() * rejectionMessages.length)];
+
+            // Update the button text with the sad rejection message
+            button.textContent = randomMessage;
+        }
+    </script>
+</body>
+</html>
