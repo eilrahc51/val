@@ -65,30 +65,30 @@
 
     <script>
         function moveButton() {
-            // Get the button element
+           
             const button = document.querySelectorAll('.buttons button')[1];
 
-            // Get the width and height of the window
+           
             const windowWidth = window.innerWidth;
             const windowHeight = window.innerHeight;
 
-            // Define maximum limits for the button's position (for example, the container's size)
+          
             const container = document.querySelector('.container');
             const containerRect = container.getBoundingClientRect();
 
             const containerWidth = containerRect.width;
             const containerHeight = containerRect.height;
 
-            // Limit the random position of the button within the container
+           
             const randomX = Math.random() * (containerWidth - button.offsetWidth);
             const randomY = Math.random() * (containerHeight - button.offsetHeight);
 
-            // Change the position of the button (keeping it inside the container boundaries)
+          
             button.style.position = 'absolute';
             button.style.left = `${randomX}px`;
             button.style.top = `${randomY}px`;
 
-            // Add a list of cute rejection messages with colloquial terms
+            
             const rejectionMessages = [
                 "I'm sorry, pookie 😢",
                 "Maybe next time, cutie 😔",
@@ -107,10 +107,10 @@
                 "I wish I could, but no 😔"
             ];
 
-            // Randomly select a rejection message
+           
             const randomMessage = rejectionMessages[Math.floor(Math.random() * rejectionMessages.length)];
 
-            // Update the button text with the sad rejection message
+            
             button.textContent = randomMessage;
         }
     </script>
